@@ -7,14 +7,16 @@ import { revalidatePath } from "next/cache";
 export async function getCurrentBudget(accountId) {
   try {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) {
+      return { budget: null, currentExpenses: 0 };
+    }
 
     const user = await db.user.findUnique({
       where: { clerkUserId: userId },
     });
 
     if (!user) {
-      throw new Error("User not found");
+      return { budget: null, currentExpenses: 0 };
     }
 
     const budget = await db.budget.findFirst({
@@ -59,7 +61,7 @@ export async function getCurrentBudget(accountId) {
     };
   } catch (error) {
     console.error("Error fetching budget:", error);
-    throw error;
+    return { budget: null, currentExpenses: 0 };
   }
 }
 
