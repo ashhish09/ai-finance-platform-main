@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" role="img" aria-label="MoneyMind logo">
+  <defs>
+    <linearGradient id="mmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B2E2B"/>
+      <stop offset="50%" stop-color="#8C5A3C"/>
+      <stop offset="100%" stop-color="#C08552"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="10" width="76" height="76" rx="18" fill="url(#mmGrad)"/>
+  <path d="M26 58V36h7l9 13 9-13h7v22h-7V48l-9 12-9-12v10z" fill="#fff"/>
+  <circle cx="59" cy="34" r="4" fill="#22c55e"/>
+  <text x="96" y="51" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#4B2E2B">MoneyMind</text>
+  <text x="97" y="74" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8C5A3C">AI Finance Assistant</text>
+</svg>
