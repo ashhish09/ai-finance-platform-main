@@ -2,7 +2,13 @@ import { currentUser } from "@clerk/nextjs/server";
 import { db } from "./prisma";
 
 export const checkUser = async () => {
-  const user = await currentUser();
+  let user = null;
+  try {
+    user = await currentUser();
+  } catch (error) {
+    console.log("checkUser: currentUser failed", error?.message || error);
+    return null;
+  }
 
   if (!user) {
     return null;
@@ -32,6 +38,7 @@ export const checkUser = async () => {
 
     return newUser;
   } catch (error) {
-    console.log(error.message);
+    console.log("checkUser: database sync failed", error?.message || error);
+    return null;
   }
 };
